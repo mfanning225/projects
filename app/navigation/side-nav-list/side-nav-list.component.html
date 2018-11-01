@@ -1,0 +1,37 @@
+<mat-nav-list>
+    <a *ngIf="!isAuth" mat-list-item routerLink="/services" (click)="onClose()">
+      <mat-icon>important_devices</mat-icon>
+      <span class="caption">Services</span>
+      </a>
+    <a *ngIf="!isAuth" mat-list-item routerLink="/signup" (click)="onClose()">
+    <mat-icon>face</mat-icon>
+    <span class="caption">Sign up</span>
+    </a>
+    <a *ngIf="!isAuth" mat-list-item routerLink="/login" (click)="onClose()">
+    <mat-icon>input</mat-icon>
+    <span class="caption">Login</span>
+    </a>
+    <a mat-list-item routerLink="/contact-us" (click)="onClose()">
+    <mat-icon>chat_bubble_outline</mat-icon>
+    <span class="caption">Contact Us</span>
+    </a>
+    <mat-list-item>
+        <button mat-icon-button (click)="onLogout()">
+            <mat-icon>eject</mat-icon>
+            <span class="caption">Logout</span>
+          </button>
+    </mat-list-item>
+    <mat-list-item> 
+        <button mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
+            <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>Item 1</button>
+              <button mat-menu-item>Item 2</button>
+            </mat-menu>          
+          </button>
+</mat-list-item>
+</mat-nav-list>
+
+
+

@@ -1,0 +1,49 @@
+<mat-toolbar color="accent">
+    <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+    <div><a routerLink="/">Headway Consulting</a></div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+        <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li>
+        
+        <ng-template #anonymousUser>
+          <li><a routerLink="/login">Login</a></li>
+        </ng-template>
+        
+        <li><a routerLink="/contact">Contact Us</a></li>
+        <li *ngIf="!isAuth"><a routerLink="/services">Services</a></li>
+          
+
+          <!-- <button *ngIf="appUser; else anonymousUser" mat-button [matMenuTriggerFor]="menu">{{appUser.name || appUser.email}}</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngIf="isAuth"><a routerLink="/my-projects">My Projects</a></button>
+            <ng-container *ngIf="appUser.isAdmin"> 
+                <a class="dropdown-item" routerLink="/admin/admin-projects">Manage Orders</a>
+                <a class="dropdown-item" routerLink="/admin/prospects">Manage Products</a>
+              </ng-container>
+          </mat-menu> -->
+
+        <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
+          <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ appUser.name || appUser.email }}
+          </a>
+          <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <ng-container *ngIf="appUser.isAdmin"> 
+                <a class="dropdown-item" routerLink="/admin/admin-projects">Admin Projects</a>
+                <a class="dropdown-item" routerLink="/admin/prospects">Prospects</a>
+          </ng-container>
+          <a class="dropdown-item" *ngIf="isAuth" style="cursor: pointer" (click)="onLogout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
+
+
+  
+
+
+  

@@ -1,0 +1,25 @@
+.OurServices {
+    margin: 40px;
+}
+
+mat-expansion-panel{
+    margin: 10px;
+}
+
+img {
+    height: 80%;
+    width: 80%;
+}
+
+.mat-accordion {
+    margin: 20px 0 10px 0;
+}
+
+mat-divider {
+    margin: 20px;
+    border-top-color: blue;
+}
+
+.txtHeader h1, p {
+    margin: 20px;
+}
